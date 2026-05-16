@@ -1,7 +1,77 @@
 {% extends "appbuilder/base.html" %}
 
 {% block content %}
-<h2><center>{{_('Page not found')}}<center></h2>
-{% endblock %}
+<style>
+    body {
+        background: linear-gradient(135deg, #1e3c72, #2a5298);
+        color: white;
+    }
+
+    .error-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 80vh;
+        flex-direction: column;
+        text-align: center;
+        animation: fadeIn 1s ease-in-out;
+    }
+
+    .error-code {
+        font-size: 100px;
+        font-weight: bold;
+        animation: float 3s ease-in-out infinite;
+    }
+
+    .error-message {
+        font-size: 28px;
+        margin-top: 10px;
+    }
+
+    .emoji {
+        font-size: 60px;
+        margin-bottom: 10px;
+        animation: bounce 2s infinite;
+    }
+
+    .home-btn {
+        margin-top: 25px;
+        padding: 12px 25px;
+        font-size: 18px;
+        color: white;
+        background: #ff7b00;
+        border: none;
+        border-radius: 30px;
+        text-decoration: none;
+        transition: 0.3s;
+    }
+
+    .home-btn:hover {
+        background: #ff5500;
+        transform: scale(1.1);
+    }
+
+    @keyframes fadeIn {
+        from {opacity: 0;}
+        to {opacity: 1;}
+    }
+
+    @keyframes float {
+        0%, 100% {transform: translateY(0);}
+        50% {transform: translateY(-15px);}
+    }
+
+    @keyframes bounce {
+        0%, 100% {transform: translateY(0);}
+        50% {transform: translateY(-10px);}
+    }
+</style>
+
+<div class="error-container">
+    <div class="emoji">😕</div>
+    <div class="error-code">404</div>
+    <div class="error-message">{{ _('Page not found') }}</div>
+    <a href="/" class="home-btn">🏠 Volver al inicio</a>
+</div>
 
 
